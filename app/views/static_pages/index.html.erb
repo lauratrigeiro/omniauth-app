@@ -1,9 +1,10 @@
 <h1>Welcome to my OmniAuth App!</h1>
 <% if user_signed_in? %>
-	<p>Isn't this the best website EVER?</p>
+	<p>Isn't this the best website EVER? You are logged in as <%= current_user.email %>.</p>
 	<p><%= link_to "Edit profile", edit_user_registration_path %></p>
 	<p><%= link_to "Sign out", destroy_user_session_path, method: :delete %></p>
 <% else %>
 	<p><%= link_to "Sign up", new_user_registration_path %></p>
 	<p><%= link_to "Log in", new_user_session_path %></p>
+	<p><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></p>
 <% end %>
